@@ -30,7 +30,7 @@ parser.add_argument('--num_res_blocks', type=int, default=2)
 parser.add_argument('--batchsize', type=int, default=2)
 parser.add_argument('--epochs', type=int, default=20000) 
 parser.add_argument('--timesteps', type=int, default=250)
-parser.add_argument('--save_and_sample_every', type=int, default=1000)
+parser.add_argument('--save_and_sample_every', type=int, default=500)
 parser.add_argument('--with_condition', action='store_true', default=True) 
 parser.add_argument('-r', '--resume_weight', type=str, default="") 
 args = parser.parse_args()
@@ -130,7 +130,7 @@ trainer = Trainer(
     train_num_steps = args.epochs,         # total training steps
     gradient_accumulate_every = 2,    # gradient accumulation steps
     ema_decay = 0.995,                # exponential moving average decay
-    fp16 = True,                     # turn on mixed precision training with apex
+    fp16 = False,                     # turn on mixed precision training with apex
     save_and_sample_every = save_and_sample_every,
     results_folder = './results_brats',
     with_condition=with_condition
