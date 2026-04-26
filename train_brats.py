@@ -43,7 +43,7 @@ if os.path.exists(args.kaggle_raw_dir):
     for f in folders:
         os.makedirs(os.path.join(base_out, f), exist_ok=True)
         
-    patient_folders = sorted(glob.glob(os.path.join(args.kaggle_raw_dir, "BraTS20_Training_*")))[:190]
+    patient_folders = sorted(glob.glob(os.path.join(args.kaggle_raw_dir, "BraTS20_Training_*")))[:100]
     for pf in patient_folders:
         pat_id = os.path.basename(pf)
         try:
